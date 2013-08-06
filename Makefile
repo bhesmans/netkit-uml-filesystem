@@ -64,10 +64,10 @@ MKFS_FLAGS?=
 # alpha amd64 arm armel hppa i386 ia64 mips mipsel powerpc s390 sparc
 # However, note that it may not be possible to compile some tools from the
 # source code if no suitable cross-architecture compiler is installed.
-SUBARCH?=amd64
+SUBARCH?=i386
 
 # URL of the Debian mirror to get packages from
-DEBIAN_MIRROR?=http://ftp.fi.debian.org/debian
+DEBIAN_MIRROR?=http://ftp.be.debian.org/debian
 
 # Comma separated list of packages to be included in the base system install.
 # This comes handy should the Debian distribution being installed have broken
@@ -123,7 +123,7 @@ FS_LABEL=nkfs-$(SUBARCH)-$(NK_FS_RELEASE)
 # It is very important to make the following simply expanded (':=' instead of
 # '='). Also, ***DO NOT EVER*** fiddle with the value of this variable, as most
 # subsequent commands use its value as the name of a raw device to write to!!!
-override LOOP_DEV:=$(shell $(LOSETUP) -f)
+override LOOP_DEV:=$(shell sudo (LOSETUP) -f)
 
 SECTOR_SIZE=512
 BLOCK_SIZE=1024
