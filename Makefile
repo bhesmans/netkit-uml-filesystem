@@ -123,7 +123,7 @@ FS_LABEL=nkfs-$(SUBARCH)-$(NK_FS_RELEASE)
 # It is very important to make the following simply expanded (':=' instead of
 # '='). Also, ***DO NOT EVER*** fiddle with the value of this variable, as most
 # subsequent commands use its value as the name of a raw device to write to!!!
-override LOOP_DEV:=$(shell sudo (LOSETUP) -f)
+override LOOP_DEV:=$(shell sudo ${LOSETUP} -f )
 
 SECTOR_SIZE=512
 BLOCK_SIZE=1024
@@ -251,14 +251,12 @@ netkit-fs-$(SUBARCH)-$(NK_FS_RELEASE):
 	echo -e "\n\e[1m\e[32m========= Creating disk image... =========\e[0m"
 	dd if=/dev/zero of=netkit-fs-$(SUBARCH)-$(NK_FS_RELEASE) count=0 seek=$(FS_SIZE) bs=1M
 
-.SILENT: .partitions_created
 .partitions_created: | netkit-fs-$(SUBARCH)-$(NK_FS_RELEASE)
 	echo -e "\n\e[1m\e[32m====== Creating partition table... =======\e[0m"
 	$(SETUP_LOOPDEV)
 	echo "$(PARTITION_OFFSET_SECTORS),,L,*" | $(SUDO_PFX) sfdisk -q -H 1 -S $(SECTORS_PER_TRACK) -uS -L --no-reread $(LOOP_DEV)$(SUDO_SFX)
 	: > .partitions_created
 
-.SILENT: .fs_created
 .fs_created: .partitions_created
 	echo -e "\n\e[1m\e[32m========== Creating filesystem... ========\e[0m"
 	$(SETUP_LOOPFS)

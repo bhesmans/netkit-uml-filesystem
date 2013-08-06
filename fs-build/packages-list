@@ -39,6 +39,8 @@ expect
 file
 findutils
 freeradius
+gcc
+git
 grep
 gzip
 host
