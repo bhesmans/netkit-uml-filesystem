@@ -1,12 +1,9 @@
 fsdir = $(datadir)/$(PACKAGE)
 
 fs = \
-	default.in
+	default-fs
 
-dist_fs_DATA = $(fs:.in=.fs)
+dist_fs_DATA = $(fs)
 
-SUFFIXES = .in .fs
-
-.in.fs:
+default-fs:
 	touch $@
-
