@@ -17,6 +17,6 @@ autom4te.cache/
 config.log
 config.status
 configure
-default-fs
+/default-fs
 install-sh
 missing

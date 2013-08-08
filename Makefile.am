@@ -8,4 +8,5 @@ dist_fs_DATA = $(fs)
 CLEANFILES = $(fs)
 
 default-fs:
-	touch $@
+	chmod +x .gen-fs.sh
+	./gen-fs.sh $@
