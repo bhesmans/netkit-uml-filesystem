@@ -5,5 +5,7 @@ fs = \
 
 dist_fs_DATA = $(fs)
 
+CLEANFILES = $(fs)
+
 default-fs:
 	touch $@
