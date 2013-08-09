@@ -64,7 +64,7 @@ MKFS_FLAGS?=
 # alpha amd64 arm armel hppa i386 ia64 mips mipsel powerpc s390 sparc
 # However, note that it may not be possible to compile some tools from the
 # source code if no suitable cross-architecture compiler is installed.
-SUBARCH?=i386
+SUBARCH?=amd64
 
 # URL of the Debian mirror to get packages from
 DEBIAN_MIRROR?=http://ftp.be.debian.org/debian
