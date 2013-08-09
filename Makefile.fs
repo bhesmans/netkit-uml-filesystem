@@ -168,7 +168,7 @@ $(UMOUNT_FS)
 endef
 
 define CLEAN_LOOPDEVS
--for LOOP in /dev/loop[0-9]*; do $(LOSETUP) $${LOOP} | grep -q "netkit-fs" 2>&1 > /dev/null && $(SUDO_PFX) $(LOSETUP) -d $(SUDO_SFX)$${LOOP}; done 2>&1 > /dev/null; true
+-for LOOP in /dev/loop[0-9]*; do sudo $(LOSETUP) $${LOOP} | grep -q "netkit-fs" 2>&1 > /dev/null && $(SUDO_PFX) $(LOSETUP) -d $(SUDO_SFX)$${LOOP}; done 2>&1 > /dev/null; true
 endef
 
 
