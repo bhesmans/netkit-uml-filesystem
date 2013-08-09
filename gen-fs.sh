@@ -2,7 +2,7 @@
 
 FSBUILD=fs-build
 SKEL=skeleton
-BUILD=netkit-fs-i386-F6.0
+BUILD=netkit-fs-amd64-F6.0
 
 rm -rf $BUILD
 rm -rf $FSBUILD
