@@ -347,6 +347,7 @@ $(PACKAGES_TARBALL_BASENAME).tgz: | .base_system_installed
 .sparsify: .applied_tweaks
 	echo -e "\n\e[1m\e[32m==== Sparsifying filesystem image... =====\e[0m"
 	$(MOUNT_FS)
+	$(SUDO_PFX) cp -r modules/lib $(FS_MOUNT_DIR)/$(SUDO_SFX)
 	-$(SUDO_PFX) dd if=/dev/zero of=$(FS_MOUNT_DIR)/zeros-mass$(SUDO_SFX) >/dev/null 2>&1; true
 	$(SUDO_PFX) rm -f $(FS_MOUNT_DIR)/zeros-mass$(SUDO_SFX)
 	$(UMOUNT_FS)
