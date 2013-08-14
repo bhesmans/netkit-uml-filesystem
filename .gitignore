@@ -20,3 +20,4 @@ configure
 /default-fs
 install-sh
 missing
+/modules

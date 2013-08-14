@@ -5,7 +5,7 @@ cat >> iclick.sh <<EOF
 cd /root/click
 ./configure --enable-local --disable-linuxmodule
 cd userlevel
-make
+make -j5
 make install
 EOF
 chmod +x iclick.sh
