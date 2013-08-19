@@ -50,6 +50,7 @@ hping3
 httptunnel
 ifupdown
 initscripts
+iperf
 iproute
 ipsec-tools
 iptables
