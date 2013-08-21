@@ -39,6 +39,7 @@ expect
 file
 findutils
 freeradius
+ftp
 g++
 gcc
 git
@@ -106,6 +107,7 @@ portmap
 ppp
 pppoeconf
 procps
+proftpd-basic
 psmisc
 python
 racoon
